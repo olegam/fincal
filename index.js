@@ -11,7 +11,7 @@ exports.calendar = function(name) {
     return cache[name];
 };
 
-exports.locales = fs.readdirSync("./locales").filter(/.*js/).map(function(file) {
+exports.locales = fs.readdirSync(__dirname + "/locales").filter(/.*js/).map(function(file) {
     var name = file.replace(".js", "");
     exports[name] = cache[name] = exports.calendar(name);
     return name;
